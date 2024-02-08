@@ -1,0 +1,9 @@
+<%= form_for @sweet do |f| %>
+    <%= f.label :name %>
+    <%= f.label :about %>
+    <%= f.label :cook %>
+    <%= f.text_field :name, :size => 140 %>
+    <%= f.text_field :about, :size => 140 %>
+    <%= f.text_field :cook, :size => 140 %>
+    <%= f.submit "編集する" %>
+<% end %>

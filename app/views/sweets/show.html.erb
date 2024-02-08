@@ -1,0 +1,54 @@
+
+<h1>GeekTwitter</h1>
+<h3>sweet詳細</h3>
+
+<div class="sweet">
+  <p><%= @sweet.name %></p>
+  <p><%= @sweet.about %></p>
+  <p><%= @sweet.cook %></p>
+  <p><%= image_tag @sweet.image_url, size: "250x200" if @sweet.image? %></p>
+  <p><%= @sweet.created_at %></p>
+    <% if user_signed_in? %>
+      <% if current_user.already_liked?(@sweet) %>
+        <%= link_to sweet_like_path(@sweet), method: :delete do %>
+          <i class="fas fa-heart"></i><%= @sweet.likes.count %>
+        <% end %>
+      <% else %>
+        <%= link_to sweet_likes_path(@sweet), method: :post do %>
+          <i class="far fa-heart"></i><%= @sweet.likes.count %>
+        <% end %>
+      <% end %>
+    <% else %>
+    <i class="far fa-heart"></i><%= @sweet.likes.count %>
+    <% end %>
+  <%= link_to "編集する", edit_sweet_path(@sweet.id) %>
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @sweet.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+<div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <%= c.user.email unless c.user.blank? %>
+      <br>
+      <%= c.content %>
+    </div>
+      <br>
+      <%= button_to "削除する", sweet_comment_path(c.id), method: :delete %>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@sweet, @comment], local: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "sweet一覧に戻る", sweets_path %>

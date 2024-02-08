@@ -1,0 +1,56 @@
+<div class="container">
+
+    <div class="img-frame">
+        <div class="img-01"></div>
+        <div class="img-02"></div>
+        <div class="img-03"></div>
+
+        <div class="sweets">
+        <p>SWEETS</p>
+        </div>
+
+        <div class="making">
+            <p>making</p>
+        </div>
+
+        <div class="header-list-top">
+            <ul>
+                <% if user_signed_in? %>
+                    <li><%= button_to 'logout', destroy_user_session_path, method: :delete %></li>
+                    <%= link_to "my page", user_path(current_user.id) %>
+                    <li><%= link_to "post new recipe", new_sweet_path %></li>
+                    <li><%= link_to 'return diagnosis', sindans_index_path %></li>
+                    <li><%= link_to 'recipe list', sweets_path %></li>
+                <% else %>
+                    <li><%= link_to "sign up", new_user_registration_path %></li>
+                    <li><%= link_to "login", new_user_session_path %></li>
+                    <li><%= link_to "post new recipe", new_sweet_path %></li>
+                    <li><%= link_to 'return diagnosis', sindans_index_path %></li>
+                    <li><%= link_to 'recipe list', sweets_path %></li>
+                <% end %>
+            </ul>
+        </div>
+
+        <div class="example4"><hr></div>
+
+    </div>
+
+    <div class="countdown-container">
+        <script type="text/javascript">
+            var year = "2024";var month = "02";var day = "14";var hour = "00";var minute = "00";var centi = "1";
+            var convert = "0";var roop = "366";
+            var cnt1 = "：";var cnt2 = "：";var cnt3 = "：";var cnt4 = "：";
+            var baseoffset = "none";var cuttime = "";
+            var br1 = "";var br2 = "";var br3 = "";var br4 = "";
+            var com1 = "Until Valentine’s Day ";var com2 = "";var com3 = "";var com4 = "Happy valentine!!";var end = "2";
+            var width = "500";var height = "100";
+            var font = "Book Antiqua";var font2 = "0";var size = "20";var t_size = "30";var l_height = "27";var t_height = "30";var bold = "";var italic = "";var line = "";
+            var space = "35px 0px 0px 0px";
+            var align = "2";var img = "";
+            var color1 = "FFFFFF";var color2 = "FFFFFF";var color3 = "transparent";
+        </script>
+        <script type="text/javascript" src="//countdown.reportitle.com/js/neo1.js"></script><a href="//countdown.reportitle.com/">カウントダウンタイマー</a><script type="text/javascript" src="//countdown.reportitle.com/js/neo2.js"></script>
+    </div>
+
+    
+</div>

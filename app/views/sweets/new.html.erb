@@ -1,0 +1,42 @@
+<h1>(自分の題名)</h1>
+<h3>新規投稿ページ</h3>
+
+<div class="header-list">
+    <ul>
+        <% if user_signed_in? %>
+            <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "TOP", root_path %></li>
+            <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
+            <li><%= link_to 'ホワイトデーのお返し診断', sindans_index_path %></li>
+            <li><%= link_to 'レシピ一覧', sweets_path %></li>
+        <% else %>
+            <li><%= link_to "TOP", root_path %></li>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><%= link_to 'ホワイトデーのお返し診断', sindans_index_path %></li>
+            <li><%= link_to 'レシピ一覧', sweets_path %></li>
+        <% end %>
+    </ul>
+</div>
+
+<%= form_for @sweet do |f| %>
+
+    <div class="field">
+        <%= f.label:レシピ名 %>
+        <%= f.text_field :name, :size => 30 %>
+    </div>
+
+    <div class="field">
+        <%= f.label :レシピ %>
+        <%= f.text_area :about, :size => "30x2" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :写真 %>
+        <%= f.file_field :image %>
+    </div>
+
+    <%= f.submit "投稿する" %>
+<% end %>
+    
+<%= link_to "一覧に戻る", sweets_path %>

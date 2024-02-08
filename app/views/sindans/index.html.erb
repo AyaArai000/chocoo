@@ -1,0 +1,281 @@
+
+<div class="header-list">
+    <ul>
+        <% if user_signed_in? %>
+            <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "TOP", root_path %></li>
+            <li><%= link_to "マイページへ", user_path(current_user.id) %><li>
+            <li><%= link_to "新規投稿へ", new_sweet_path %></li>
+            <li><%= link_to 'レシピ一覧', sweets_path %></li>
+        <% else %>
+            <li><%= link_to "TOP", root_path %></li>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><%= link_to "新規投稿へ", new_sweet_path %></li>
+            <li><%= link_to 'レシピ一覧', sweets_path %></li>
+        <% end %>
+    </ul>
+</div>
+
+<header id="commonHeader">
+        <section id="flowsHead" class="wf-mplus1p">あなたにあったホワイトデーのお返しが1分でわかる</section>
+        <section id="flows" class="wf-mplus1p">お返し診断</section>
+        </header>
+        
+        <div id="wrapper">
+            <div class="sense">
+                <article id="pageBody">
+        
+                    <div class="point_box">
+                    <div class="box">
+                    <div class="txt">
+                    <p>1分だけ下記の質問に答えてみてください。あなたにぴったりのホワイトデーのお返しがわかります!</p>
+                    </div>
+                    </div>
+                    </div>
+        
+        
+                    <ul class="qalist wf-mplus1p">
+        
+                    <li id="1" class="question">
+                        <a name="#1"></a>
+                        <div class="qbox"><span  class="q">Q.</span>お相手のことをどう思いますか？</div>
+                        <div class="qabox">
+                            <a href="#2" onclick="show(2)" class="qabtn"><div class="btnBox btnBox_y">好き</div></a>
+                            <a href="#3" onclick="show(3)" class="qabtn"><div class="btnBox btnBox_n">特に…</div></a>
+                        </div>
+                    </li>
+                    <li id="2" class="question" style="display:none;">
+                        <a name="#2"></a>
+                        <div class="qbox"><span  class="q">Q.</span>お相手は好きぴですか？</div>
+                        <div class="qabox">
+                            <a href="#4" onclick="show(4)" class="qabtn"><div class="btnBox btnBox_y">YES</div></a>
+                            <a href="#5" onclick="show(5)" class="qabtn"><div class="btnBox btnBox_n">NO</div></a>
+                        </div>
+                    </li>
+                    <li id="3" class="question" style="display:none;">
+                        <a name="#3"></a>
+                        <div class="qbox"><span  class="q">Q.</span>お相手のことが苦手ですか？</div>
+                        <div class="qabox">
+                            <a href="#6" onclick="show(6)" class="qabtn"><div class="btnBox btnBox_y">YES</div></a>
+                            <a href="#7" onclick="show(7)" class="qabtn"><div class="btnBox btnBox_n">NO</div></a>
+                        </div>
+                    </li>
+                    <li id="4" class="question">
+                        <a name="#4"></a>
+                        <div class="qbox"><span  class="q">Q.</span>その人と付き合っていますか？</div>
+                        <div class="qabox">
+                            <a href="#101" onclick="show(101)" class="qabtn"><div class="btnBox btnBox_y">YES</div></a>
+                            <a href="#102" onclick="show(102)" class="qabtn"><div class="btnBox btnBox_n">NO</div></a>
+                        </div>
+                    </li>
+                    <li id="5" class="question">
+                        <a name="#5"></a>
+                        <div class="qbox"><span  class="q">Q.</span>関係を進展したいですか?</div>
+                        <div class="qabox">
+                            <a href="#103" onclick="show(103)" class="qabtn"><div class="btnBox btnBox_y">YES</div></a>
+                            <a href="#104" onclick="show(104)" class="qabtn"><div class="btnBox btnBox_n">NO</div></a>
+                        </div>
+                    </li>
+                    <li id="6" class="question">
+                        <a name="#6"></a>
+                        <div class="qbox"><span  class="q">Q.</span>お返しをあげたいですか?</div>
+                        <div class="qabox">
+                            <a href="#8" onclick="show(8)" class="qabtn"><div class="btnBox btnBox_y">YES</div></a>
+                            <a href="#107" onclick="show(107)" class="qabtn"><div class="btnBox btnBox_n">NO</div></a>
+                        </div>
+                    </li>
+                    <li id="7" class="question">
+                        <a name="#7"></a>
+                        <div class="qbox"><span  class="q">Q.</span>お返しをあげたいですか?</div>
+                        <div class="qabox">
+                            <a href="#108" onclick="show(108)" class="qabtn"><div class="btnBox btnBox_y">YES</div></a>
+                            <a href="#109" onclick="show(109)" class="qabtn"><div class="btnBox btnBox_n">NO</div></a>
+                        </div>
+                    </li>
+                    <li id="8" class="question">
+                        <a name="#8"></a>
+                        <div class="qbox"><span  class="q">Q.</span>記憶から抹消したいですか?</div>
+                        <div class="qabox">
+                            <a href="#105" onclick="show(105)" class="qabtn"><div class="btnBox btnBox_y">YES</div></a>
+                            <a href="#106" onclick="show(106)" class="qabtn"><div class="btnBox btnBox_n">NO</div></a>
+                        </div>
+                    </li>
+                    </ul>
+        
+                    <div class="answerList">
+                        <div id="101" style="display:none;" class="answer point_box">
+                            <div class="box">
+                                <div class="title">
+                                <p>あなたに勧めるお返しは<span class="fs-18"><span class="bg-y">『チョコレートと感謝の言葉』</span></span>です！</p>
+                                </div>
+                            <div class="txt">
+                                <div class="img">
+                                <%= image_tag '' %></div>
+                                <p>「チョコレートと感謝の言葉」</p>
+                                <p>大好きな人にチョコレートと日ごろの感謝の気持ちを伝えてみましょう</p>
+                                <li><%= link_to 'お菓子を作ってみる', sweets_path %></li>
+                                <p><a href="#" class="square_btn">もっと詳しくみる</a></p>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="102" style="display:none;" class="answer point_box">
+                            <div class="box">
+                                <div class="title">
+                                <p>あなたに勧めるお返しは<span class="fs-18"><span class="bg-y">『カップケーキと愛の言葉』</span></span>です！</p>
+                                </div>
+                            <div class="txt">
+                                <div class="img">
+                                <%= image_tag '' %></div>
+                                <p>「カップケーキと愛の言葉」</p>
+                                <p>大好きな人にカップケーキと愛の言葉を伝えましょう</p>
+                                <li><%= link_to 'お菓子を作ってみる', sweets_path %></li>
+                                <p><a href="#" class="square_btn">もっと詳しくみる</a></p>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="103" style="display:none;" class="answer point_box">
+                            <div class="box">
+                                <div class="title">
+                                <p>あなたに勧めるお返しは<span class="fs-18"><span class="bg-y">『マドレーヌ』</span></span>です！</p>
+                                </div>
+                            <div class="txt">
+                                <div class="img">
+                                <%= image_tag '' %></div>
+                                <p>「マドレーヌ」</p>
+                                <p>仲良くなりたいお相手にマドレーヌをプレゼントしましょう</p>
+                                <li><%= link_to 'お菓子を作ってみる', sweets_path %></li>
+                                <p><a href="#" class="square_btn">もっと詳しくみる</a></p>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="104" style="display:none;" class="answer point_box">
+                            <div class="box">
+                                <div class="title">
+                                <p>あなたに勧めるお返しは<span class="fs-18"><span class="bg-y">「クッキー」</span></span>です！</p>
+                                </div>
+                            <div class="txt">
+                                <div class="img">
+                                <%= image_tag '' %></div>
+                                <p>「クッキー」</p>
+                                <p>仲の良い友達にはクッキーをプレゼントしましょう</p>
+                                <li><%= link_to 'お菓子を作ってみる', sweets_path %></li>
+                                <p><a href="#" class="square_btn">もっと詳しくみる</a></p>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="105" style="display:none;" class="answer point_box">
+                            <div class="box">
+                                <div class="title">
+                                <p>あなたに勧めるお返しは<span class="fs-18"><span class="bg-y">『マシュマロ』</span></span>です！</p>
+                                </div>
+                            <div class="txt">
+                                <div class="img">
+                                <%= image_tag '' %></div>
+                                <p>「マシュマロ」</p>
+                                <p>嫌いなお相手の記憶はマシュマロのように消しましょう</p>
+                                <li><%= link_to 'お菓子を作ってみる', sweets_path %></li>
+                                <p><a href="#" class="square_btn">もっと詳しくみる</a></p>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="106" style="display:none;" class="answer point_box">
+                            <div class="box">
+                                <div class="title">
+                                <p>あなたに勧めるお返しは<span class="fs-18"><span class="bg-y">『チロルチョコ』</span></span>です！</p>
+                                </div>
+                            <div class="txt">
+                                <div class="img">
+                                <%= image_tag '' %></div>
+                                <p>「チロルチョコ」</p>
+                                <p>嫌いなお相手にはチロルチョコでもあげましょう</p>
+                                <p>嫌いなお相手にお返しを送るあなたは優しいですね</p>
+                                <p>自分用にお菓子を作って楽しんでみましょう</p>
+                                <li><%= link_to 'お菓子を作ってみる', sweets_path %></li>
+                                <p><a href="#" class="square_btn">もっと詳しくみる</a></p>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="107" style="display:none;" class="answer point_box">
+                            <div class="box">
+                                <div class="title">
+                                <p>あなたに勧めるお返しは<span class="fs-18"><span class="bg-y">『ありません』</span></span>！</p>
+                                </div>
+                            <div class="txt">
+                                <div class="img">
+                                <%= image_tag '' %></div>
+                                <p>「ありません」</p>
+                                <p>嫌いなお相手にはお返しはいらないかもしれないですね</p>
+                                <p>自分用にお菓子を作って楽しみましょう</p>
+                                <li><%= link_to 'お菓子を作ってみる', sweets_path %></li>
+                                <p><a href="#" class="square_btn">もっと詳しくみる</a></p>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="108" style="display:none;" class="answer point_box">
+                            <div class="box">
+                                <div class="title">
+                                <p>あなたに勧めるお返しは<span class="fs-18"><span class="bg-y">『チロルチョコ』</span></span>です！</p>
+                                </div>
+                            <div class="txt">
+                                <div class="img">
+                                <%= image_tag '' %></div>
+                                <p>「チロルチョコ」</p>
+                                <p>なんとも思っていないお相手にはチロルチョコでもあげましょう</p>
+                                <p>なんとも思っていないお相手にお返しを送るあなたは優しいですね</p>
+                                <p>自分用にお菓子を作って楽しんでみましょう</p>
+                                <li><%= link_to 'お菓子を作ってみる', sweets_path %></li>
+                                <p><a href="#" class="square_btn">もっと詳しくみる</a></p>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="109" style="display:none;" class="answer point_box">
+                            <div class="box">
+                                <div class="title">
+                                <p>あなたに勧めるお返しは<span class="fs-18"><span class="bg-y">『ありません』</span></span>！</p>
+                                </div>
+                            <div class="txt">
+                                <div class="img">
+                                <%= image_tag '' %></div>
+                                <p>「ありません」</p>
+                                <p>なんとも思わないお相手にはお返しはいらないかもしれないですね</p>
+                                <p>自分用にお菓子を作って楽しみましょう</p>
+                                <li><%= link_to 'お菓子を作ってみる', sweets_path %></li>
+                                <p><a href="#" class="square_btn">もっと詳しくみる</a></p>
+                            </div>
+                            </div>
+                        </div>
+                </article>
+            </div>
+        </div>
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+        $(function(){
+           $('a[href^=#]').click(function() {
+              var speed = 600;
+              var href= $(this).attr("href");
+              var target = $(href == "#" || href == "" ? 'html' : href);
+              var position = target.offset().top;
+              $('body,html').animate({scrollTop:position}, speed, 'swing');
+              return false;
+           });
+        });
+        $(function(){
+            h = $(window).height();
+            h = h-30;
+            $(".question").css("min-height", h + "px");
+            $(".answerList .box").css("min-height", h + "px");
+            
+        });
+        function show(idName){ 
+            $("#" + idName).show();
+        }
+        
+        </script>
+        
+        
+</body>
+</html>
