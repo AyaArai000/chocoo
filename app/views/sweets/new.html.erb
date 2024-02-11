@@ -1,20 +1,21 @@
-<h1>(自分の題名)</h1>
-<h3>新規投稿ページ</h3>
+<div class="post-new-recipe">
+    <h1>POST NEW RECIPE</h1>
+</div>
 
 <div class="header-list">
     <ul>
         <% if user_signed_in? %>
-            <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to "TOP", root_path %></li>
-            <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
-            <li><%= link_to 'ホワイトデーのお返し診断', sindans_index_path %></li>
-            <li><%= link_to 'レシピ一覧', sweets_path %></li>
+            <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "top", root_path %></li>
+            <li><%= link_to "my page", user_path(current_user.id) %></li>
+            <li><%= link_to 'return diagnosis', sindans_index_path %></li>
+            <li><%= link_to 'recipe list', sweets_path %></li>
         <% else %>
-            <li><%= link_to "TOP", root_path %></li>
-            <li><%= link_to "新規登録", new_user_registration_path %></li>
-            <li><%= link_to "ログイン", new_user_session_path %></li>
-            <li><%= link_to 'ホワイトデーのお返し診断', sindans_index_path %></li>
-            <li><%= link_to 'レシピ一覧', sweets_path %></li>
+            <li><%= link_to "top", root_path %></li>
+            <li><%= link_to "sign up", new_user_registration_path %></li>
+            <li><%= link_to "log in", new_user_session_path %></li>
+            <li><%= link_to 'return diagnosis', sindans_index_path %></li>
+            <li><%= link_to 'recipe list', sweets_path %></li>
         <% end %>
     </ul>
 </div>

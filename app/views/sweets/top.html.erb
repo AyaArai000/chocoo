@@ -6,7 +6,7 @@
         <div class="img-03"></div>
 
         <div class="sweets">
-        <p>SWEETS</p>
+            <p>SWEETS</p>
         </div>
 
         <div class="making">
@@ -16,7 +16,7 @@
         <div class="header-list-top">
             <ul>
                 <% if user_signed_in? %>
-                    <li><%= button_to 'logout', destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to 'log out', destroy_user_session_path, method: :get %></li>
                     <%= link_to "my page", user_path(current_user.id) %>
                     <li><%= link_to "post new recipe", new_sweet_path %></li>
                     <li><%= link_to 'return diagnosis', sindans_index_path %></li>
