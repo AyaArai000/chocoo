@@ -17,7 +17,7 @@
             <ul>
                 <% if user_signed_in? %>
                     <li><%= link_to 'log out', destroy_user_session_path, method: :get %></li>
-                    <%= link_to "my page", user_path(current_user.id) %>
+                    <li><%= link_to "my page", user_path(current_user.id) %></li>
                     <li><%= link_to "post new recipe", new_sweet_path %></li>
                     <li><%= link_to 'return diagnosis', sindans_index_path %></li>
                     <li><%= link_to 'recipe list', sweets_path %></li>

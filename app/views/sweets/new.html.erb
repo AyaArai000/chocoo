@@ -23,12 +23,12 @@
 <%= form_for @sweet do |f| %>
 
     <div class="field">
-        <%= f.label:レシピ名 %>
+        <%= f.label:"Recipe Name" %>
         <%= f.text_field :name, :size => 30 %>
     </div>
 
     <div class="field">
-        <%= f.label :レシピ %>
+        <%= f.label :"Recipe" %>
         <%= f.text_area :about, :size => "30x2" %>
     </div>
 
@@ -41,3 +41,12 @@
 <% end %>
     
 <%= link_to "一覧に戻る", sweets_path %>
+
+<div class="line">
+</div>
+<div class="tate">
+縦線
+</div>
+<div class="tatete">
+縦線
+</div>
